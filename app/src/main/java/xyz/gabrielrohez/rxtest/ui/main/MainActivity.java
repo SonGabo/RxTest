@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.rxtest.ui;
+package xyz.gabrielrohez.rxtest.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import xyz.gabrielrohez.rxtest.databinding.ActivityMainBinding;
+import xyz.gabrielrohez.rxtest.ui.second.RxRetrofitActivity;
 
 public class MainActivity extends AppCompatActivity {
 
