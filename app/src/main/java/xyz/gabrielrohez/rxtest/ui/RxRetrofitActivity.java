@@ -1,8 +1,10 @@
-package xyz.gabrielrohez.rxtest;
+package xyz.gabrielrohez.rxtest.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import xyz.gabrielrohez.rxtest.R;
 
 public class RxRetrofitActivity extends AppCompatActivity {
 

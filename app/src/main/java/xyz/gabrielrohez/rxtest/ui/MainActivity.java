@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.rxtest;
+package xyz.gabrielrohez.rxtest.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 

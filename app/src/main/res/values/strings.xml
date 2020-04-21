@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RxTest</string>
     <string name="rx_retrofit">Rx Retrofit</string>
+    <string name="repository_name">Repository Name:</string>
+    <string name="language">Language:</string>
+    <string name="stars">Stars</string>
 </resources>
