@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RxTest</string>
+    <string name="rx_retrofit">Rx Retrofit</string>
 </resources>

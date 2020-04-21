@@ -21,6 +21,10 @@ android {
         }
     }
 
+    viewBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -37,7 +41,7 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:3.0.0"
 
     //  Retrofit
-    implementation  'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.5.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.8.1'
