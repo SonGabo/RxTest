@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import xyz.gabrielrohez.rxtest.databinding.ActivityMainBinding;
-import xyz.gabrielrohez.rxtest.ui.second.RxRetrofitActivity;
+import xyz.gabrielrohez.rxtest.ui.second.view.RxRetrofitActivity;
 
 public class MainActivity extends AppCompatActivity {
 

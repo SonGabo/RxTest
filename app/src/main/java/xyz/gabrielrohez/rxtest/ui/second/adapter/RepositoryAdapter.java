@@ -1,4 +1,4 @@
-package xyz.gabrielrohez.rxtest.ui.second;
+package xyz.gabrielrohez.rxtest.ui.second.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
