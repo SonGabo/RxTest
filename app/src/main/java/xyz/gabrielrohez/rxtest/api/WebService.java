@@ -25,7 +25,7 @@ public class WebService {
                 .build();
     }
 
-    public static synchronized WebService getInstance(){
+    public static synchronized WebService  getInstance(){
         if (instance == null)
             instance = new WebService();
 
