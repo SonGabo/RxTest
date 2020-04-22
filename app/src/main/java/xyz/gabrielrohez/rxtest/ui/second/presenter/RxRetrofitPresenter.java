@@ -23,8 +23,19 @@ public class RxRetrofitPresenter implements RxRetrofitPresenterIn.Listener, RxRe
     }
 
     @Override
+    public void getReposFilter(CompositeDisposable compositeDisposable) {
+        model.getReposFilter(this, compositeDisposable);
+    }
+
+    @Override
     public void setData(List<GitHubRepo> gitHubRepos) {
         if (view != null)
             view.setData(gitHubRepos);
+    }
+
+    @Override
+    public void setDataFilter(GitHubRepo gitHubRepo) {
+        if (view != null)
+            view.setDataFilter(gitHubRepo);
     }
 }

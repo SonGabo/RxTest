@@ -6,4 +6,6 @@ import xyz.gabrielrohez.rxtest.model.GitHubRepo;
 
 public interface RxRetrofitView {
     void setData(List<GitHubRepo> gitHubRepos);
+
+    void setDataFilter(GitHubRepo gitHubRepo);
 }

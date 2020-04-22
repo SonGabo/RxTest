@@ -9,10 +9,13 @@ public interface RxRetrofitPresenterIn {
 
     interface Listener{
         void setData(List<GitHubRepo> gitHubRepos);
+
+        void setDataFilter(GitHubRepo gitHubRepo);
     }
 
     interface Presenter{
 
         void getRepos(CompositeDisposable compositeDisposable);
+        void getReposFilter(CompositeDisposable compositeDisposable);
     }
 }

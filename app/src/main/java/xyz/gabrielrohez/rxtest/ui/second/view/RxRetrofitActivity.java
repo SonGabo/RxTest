@@ -33,7 +33,8 @@ public class RxRetrofitActivity extends AppCompatActivity implements RxRetrofitV
         setContentView(view);
 
         setUpRecycler();
-        presenter.getRepos(compositeDisposable);
+        //presenter.getRepos(compositeDisposable);
+        presenter.getReposFilter(compositeDisposable);
     }
 
     private void setUpRecycler() {
@@ -46,6 +47,12 @@ public class RxRetrofitActivity extends AppCompatActivity implements RxRetrofitV
     @Override
     public void setData(List<GitHubRepo> gitHubRepos) {
         adapter.setData(gitHubRepos);
+    }
+
+    @Override
+    public void setDataFilter(GitHubRepo gitHubRepo) {
+        gitHubList.add(gitHubRepo);
+        adapter.setData(gitHubList);
     }
 
     @Override
