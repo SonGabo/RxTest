@@ -26,17 +26,8 @@ public class RxRetrofitModel implements RxRetrofitModelIn {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
-                                new Consumer<List<GitHubRepo>>() {
-                                    @Override
-                                    public void accept(List<GitHubRepo> gitHubRepos) throws Exception {
-                                        listener.setData(gitHubRepos);
-                                    }
-                                }, new Consumer<Throwable>() {
-                                    @Override
-                                    public void accept(Throwable throwable) throws Exception {
-                                        Log.d(TAG, "error: "+throwable.getMessage());
-                                    }
-                                }
+                                listener::setData,
+                                throwable -> Log.d(TAG, "error: "+throwable.getMessage())
                         )
         );
     }
