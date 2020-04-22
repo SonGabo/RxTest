@@ -61,32 +61,12 @@ public class RxRetrofitModel implements RxRetrofitModelIn {
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .toObservable()
-                        .flatMap(new Function<List<GitHubRepo>, ObservableSource<GitHubRepo>>() {
-                            @Override
-                            public ObservableSource<GitHubRepo> apply(List<GitHubRepo> gitHubRepos) throws Exception {
-                                return Observable.fromIterable(gitHubRepos);
-                            }
-                        })
-                        .filter(new Predicate<GitHubRepo>() {
-                            @Override
-                            public boolean test(GitHubRepo gitHubRepo) throws Exception {
-                                if (gitHubRepo.getLanguage() != null && gitHubRepo.getLanguage().equals("Kotlin"))
-                                    return true;
-                                else
-                                    return false;
-                            }
-                        })
-                        .subscribe(new Consumer<GitHubRepo>() {
-                            @Override
-                            public void accept(GitHubRepo gitHubRepo) throws Exception {
-                                listener.setDataFilter(gitHubRepo);
-                            }
-                        }, new Consumer<Throwable>() {
-                            @Override
-                            public void accept(Throwable throwable) throws Exception {
-                                Log.d(TAG, "error: "+throwable.getMessage());
-                            }
-                        })
+                        .flatMapIterable(e->e)
+                        .filter(e->e.getLanguage()!=null && e.getLanguage().equals("Kotlin"))
+                        .subscribe(
+                                listener::setDataFilter,
+                                throwable -> Log.d(TAG, "error: "+throwable.getMessage())
+                        )
         );
     }
 }
