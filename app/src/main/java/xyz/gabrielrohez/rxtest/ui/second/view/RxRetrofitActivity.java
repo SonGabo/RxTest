@@ -34,7 +34,8 @@ public class RxRetrofitActivity extends AppCompatActivity implements RxRetrofitV
 
         setUpRecycler();
         //presenter.getRepos(compositeDisposable);
-        presenter.getReposFilter(compositeDisposable);
+        //presenter.getReposFilter(compositeDisposable);
+        presenter.getAverageStars(compositeDisposable);
     }
 
     private void setUpRecycler() {

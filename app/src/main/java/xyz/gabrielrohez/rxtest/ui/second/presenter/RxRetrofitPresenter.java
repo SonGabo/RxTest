@@ -28,6 +28,11 @@ public class RxRetrofitPresenter implements RxRetrofitPresenterIn.Listener, RxRe
     }
 
     @Override
+    public void getAverageStars(CompositeDisposable compositeDisposable) {
+        model.getAverageStars(this, compositeDisposable);
+    }
+
+    @Override
     public void setData(List<GitHubRepo> gitHubRepos) {
         if (view != null)
             view.setData(gitHubRepos);

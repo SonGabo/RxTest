@@ -17,5 +17,6 @@ public interface RxRetrofitPresenterIn {
 
         void getRepos(CompositeDisposable compositeDisposable);
         void getReposFilter(CompositeDisposable compositeDisposable);
+        void getAverageStars(CompositeDisposable compositeDisposable);
     }
 }

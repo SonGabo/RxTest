@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import hu.akarnokd.rxjava2.math.MathObservable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -72,5 +73,39 @@ public class RxRetrofitModel implements RxRetrofitModelIn {
                                 error -> Log.d(TAG, "error: "+error.getMessage())
                         )
         );
+    }
+
+    @Override
+    public void getAverageStars(RxRetrofitPresenterIn.Listener listener, CompositeDisposable compositeDisposable) {
+
+        Observable<Integer> observable = WebService
+                .getInstance()
+                .createService()
+                .getReposRx("JakeWharton")
+                .toObservable()
+                .flatMapIterable(e->e)
+                .map(GitHubRepo::getStargazers_count);
+
+        MathObservable.averageDouble(observable)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        e-> Log.d(TAG, "Average: "+e)
+                );
+
+        MathObservable.max(observable)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        e-> Log.d(TAG, "Max: "+e)
+                );
+
+        MathObservable.min(observable)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        e-> Log.d(TAG, "Min: "+e)
+                );
+
     }
 }
