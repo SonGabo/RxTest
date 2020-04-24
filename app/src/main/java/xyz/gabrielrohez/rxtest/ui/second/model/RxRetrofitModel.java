@@ -63,9 +63,13 @@ public class RxRetrofitModel implements RxRetrofitModelIn {
                         .toObservable()
                         .flatMapIterable(e->e)
                         .filter(e->e.getLanguage()!=null && e.getLanguage().equals("Kotlin"))
+                        //.take(3)    //  get only 3 elements
+                        //.elementAt(3)   //  get third element
+                        //.first(new GitHubRepo())    //  get first element
+                        .toSortedList((o1, o2)->o1.getStargazers_count() - o2.getStargazers_count())
                         .subscribe(
-                                listener::setDataFilter,
-                                throwable -> Log.d(TAG, "error: "+throwable.getMessage())
+                                e -> listener.setData(e),
+                                error -> Log.d(TAG, "error: "+error.getMessage())
                         )
         );
     }
